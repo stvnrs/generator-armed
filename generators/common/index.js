@@ -1,5 +1,5 @@
 const Generator = require('yeoman-generator');
-const Armourer = require('../app/armourer')
+const Armed = require('../app/armed')
 const destinationRoot = 'deployments';
 
 module.exports = class extends Generator {
@@ -24,13 +24,13 @@ module.exports = class extends Generator {
         const deployments = this.config.get('deployments') || [];
         deployments.push(deployment);
         this.config.set('deployments', deployments);
-        this.config.set(Armourer.COMMON_DEPLOYMENT_NAME, answers.commonDeploymentName);
+        this.config.set(Armed.COMMON_DEPLOYMENT_NAME, answers.commonDeploymentName);
     }
 
     writing() {
         ["functions.json", "variables.json"].forEach(
             template => {
-                return this.fs.copy(this.templatePath(template), this.destinationPath(destinationRoot, this.config.get(Armourer.COMMON_DEPLOYMENT_NAME), template));
+                return this.fs.copy(this.templatePath(template), this.destinationPath(destinationRoot, this.config.get(Armed.COMMON_DEPLOYMENT_NAME), template));
             });
     }
 };
