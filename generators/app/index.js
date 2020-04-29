@@ -4,6 +4,7 @@ const destinationRoot = 'deployments';
 module.exports = class extends Generator {
 
     initializing() {
+
     }
 
     async prompting() {
@@ -13,6 +14,13 @@ module.exports = class extends Generator {
                 name: "projectName",
                 message: "Your project name",
                 default: this.appname, // Default to current folder name
+                store: true
+            }, 
+            {
+                type: "confirm",
+                name: "addCommonDeployment",
+                message: "Add common deployment",
+                default: true,
                 store: true
             },
             {
@@ -38,6 +46,10 @@ module.exports = class extends Generator {
             }
         ]);
 
+        if (this.answers.addCommonDeployment) {
+            this.composeWith(require.resolve('../common'));
+        }
+
         if (this.answers.addTenantDeployment) {
             this.composeWith(require.resolve('../tenant'));
         }
@@ -49,6 +61,7 @@ module.exports = class extends Generator {
         if (this.answers.addGroupDeployment) {
             this.composeWith(require.resolve('../deployment'));
         }
+
     }
 
     writing() {

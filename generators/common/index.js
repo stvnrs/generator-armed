@@ -5,7 +5,7 @@ const destinationRoot = 'deployments';
 module.exports = class extends Generator {
 
     initializing(){
-        this.sourceRoot(`${this.sourceRoot()}/../../templates`);
+        this.sourceRoot(`${this.sourceRoot()}/../../templates/common/`);
     }
 
     async prompting() {
@@ -30,7 +30,7 @@ module.exports = class extends Generator {
     writing() {
         ["functions.json", "variables.json"].forEach(
             template => {
-                return this.fs.copy(this.templatePath(template), this.destinationPath(destinationRoot, this.config.get(Armourer.COMMON_DEPLOYMENT_NAME, template)));
+                return this.fs.copy(this.templatePath(template), this.destinationPath(destinationRoot, this.config.get(Armourer.COMMON_DEPLOYMENT_NAME), template));
             });
     }
 };
