@@ -1,0 +1,13 @@
+{
+	"Declare an output": {
+		"scope": "json, arm-template",
+		"prefix": "a:os",
+		"body": [
+			"\"${1:outputName}\": {",
+				"   \"type\": \"${2|string,object|}\",",
+				"   \"value\": \"$0\"",
+				"}"
+		],
+		"description": "declare an output"
+	}
+}

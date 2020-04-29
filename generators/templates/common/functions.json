@@ -1,0 +1,92 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters":{
+    "ring": {
+      "type": "string",
+      "defaultValue": "production"
+    }
+  },
+  "functions": [
+    {
+      "namespace": "fn",
+      "members": {
+        "locationIdentifier": {
+          "parameters": [
+            {
+              "name": "location",
+              "type": "string"
+            }
+          ],
+          "output": {
+            "type": "string",
+            "value": "[if(equals(parameters('location'),'northeurope'), 'ne', if(equals(parameters('location'),'westeurope'), 'we','??location??'))]"
+          }
+        },
+        "resourceTypeIdentifier": {
+          "parameters": [
+            {
+              "name": "resourceType",
+              "type": "string"
+            }
+          ],
+          "output": {
+            "type": "string",
+            "value": "[toLower(parameters('resourceType'))]"
+          }
+        },
+        "resourceTypeShortIdentifier": {
+          "parameters": [
+            {
+              "name": "resourceType",
+              "type": "string"
+            }
+          ],
+          "output": {
+            "type": "string",
+            "value": "[toLower(parameters('resourceType'))]"
+          }
+        },
+        "ringIdentifier": {
+          "parameters": [
+            {
+              "name": "ring",
+              "type": "string"
+            }
+          ],
+          "output": {
+            "type": "string",
+            "value": "[ if(equals(parameters('deploymentRing'),'dev'), 'dev', 
+            if(equals(parameters('deploymentRing'),'test'), 'test',
+             if(equals(parameters('deploymentRing'),'pre-production'),'pre-production', 
+             if(equals(parameters('deploymentRing'),'production'), 'production', '??deploymentRing??' ) ) ) ) ]"
+          }
+        },
+        "ringIdentifierShort": {
+          "parameters": [
+            {
+              "name": "ring",
+              "type": "string"
+            }
+          ],
+          "output": {
+            "type": "string",
+            "value": "[ if(equals(parameters('ring'),'dev'), 'dv', if(equals(parameters('ring'),'test'), 'ts', if(equals(parameters('ring'),'pre-production'),'pp', if(equals(parameters('ring'),'production'), 'pr', '??deploymentRing??' ) ) ) ) ]"
+          }
+        }
+      }
+    }
+  ],
+  "resources": [
+  ],
+  "outputs": {
+    "ringIdentifier": {
+      "type": "string",
+      "value": "[fn.ringIdentifier(parameters('ring'))]"
+    },
+    "ringIdentifierShort": {
+      "type": "string",
+      "value": "[fn.ringIdentifierShort(parameters('ring'))]"
+    }
+  }
+}
