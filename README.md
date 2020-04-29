@@ -16,7 +16,7 @@ Armed is [yeoman](https://yeoman.io/) generator that simplifies the development 
 npm install --global yo
 ```
 
-** NOTE:  The following instruction will be valid for the release version, to use the pre-release version see the [contributing](#Contributing) section below.
+**NOTE:**  The following instruction will be valid for the release version, to use the pre-release version see the [contributing](#Contributing) section below.
 
 - Install *armed*
 
@@ -60,6 +60,8 @@ yo armed
    create deployments\core\functions.json
    create deployments\core\outputs.json
 ```
+
+**NOTE:**  The following instruction will be valid for the release version, to use the pre-release version see the [contributing](#Contributing) section below.
 
 Armed will then will run _npm init_ to initialize your project. See npm's [docs](https://docs.npmjs.com/) for a more detailed walkthrough of this process.
 
@@ -141,7 +143,7 @@ This folder contains files that will be included with all deployments. By defaul
     outputs.json
 ```
 
-####  Files
+#### Files
 
 ##### _deployment.json
 
@@ -265,6 +267,8 @@ Note:  in your target solution you will need to manually initialize the package 
 npm init
 npm install gulp gulp-clean gulp-bump gulp-replace
 ```
+
+Any changes made in the generator-armed solution will be available immediately in your target solution.
 
 ## Licence
 
