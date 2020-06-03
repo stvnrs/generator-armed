@@ -6,9 +6,15 @@ Armed is [yeoman](https://yeoman.io/) generator that simplifies the development 
 
 ### Pre-requisites
 
-- Install/update *node* & *npm* for your platform [nodejs.org](https://nodejs.org/en/)
+- Install/update PowerShell [Az](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-3.8.0) or the [azure-cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-- Install/update PowerShell [Az](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-3.8.0) or the [azure-cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+- Install/update *node* & *npm* for your platform [nodejs.org](https://nodejs.org/en/).
+
+- Install *gulp* globally - global install is required for VS Code to detect gulp build tasks.
+
+```Powershell
+npm install --global gulp
+```
 
 - Install *yeoman* - see yeoman's [docs](https://yeoman.io/learning/index.html) for a detailed walkthrough.
 
@@ -16,9 +22,7 @@ Armed is [yeoman](https://yeoman.io/) generator that simplifies the development 
 npm install --global yo
 ```
 
-**NOTE:**  The following instruction will be valid for the release version, to use the pre-release version see the [contributing](#Contributing) section below.
-
-- Install *armed*
+- Install *armed* from the npm repository, or to use a clone of this repository see the [Contributing](#Contributing) section below.
 
 ```Powershell
 npm install --global generator-armed
@@ -26,44 +30,19 @@ npm install --global generator-armed
 
 ### Creating an armed project
 
-Open your favorite terminal and create a new folder for your project:
+- Open your favorite terminal and create a new folder for your project:
 
 ```Powershell
 mkdir my-armed-project
 cd my-armed-project
 ```
 
-Run the *armed* generator:
+- Run _npm init_ to initialize your project. See npm's [docs](https://docs.npmjs.com/) for a more detailed walkthrough of this process.
+(Note: we expect to automate this step at some point.)
 
-```Powershell
-yo armed
+```bash
+npm init
 ```
-
-Armed will prompt you for any required inputs - you can accept the defaults by pressing return or enter your own values.
-
-```text
-yo armed
-? Your project name my-armed-project
-? Add tenant deployment true
-? Add subscription deployment true
-? Add group deployment true
-? Name of group deployment core
-   create .gitignore
-   create .vscode\snippets.code-snippets
-   create gulpfile.js
-   create deployments\tenant\tenant-deployment.json
-   create deployments\subscription\subscription-deployment.json
-   create deployments\core\_deployment.json
-   create deployments\core\_parameters.json
-   create deployments\core\resources.json
-   create deployments\core\variables.json
-   create deployments\core\functions.json
-   create deployments\core\outputs.json
-```
-
-**NOTE:**  The following instruction will be valid for the release version, to use the pre-release version see the [contributing](#Contributing) section below.
-
-Armed will then will run _npm init_ to initialize your project. See npm's [docs](https://docs.npmjs.com/) for a more detailed walkthrough of this process.
 
 ```text
 This utility will walk you through creating a package.json file.
@@ -105,6 +84,38 @@ About to write to C:\Users\StevenRose\source\repos\my-armed-project\package.json
 Is this OK? (yes)
 ```
 
+- Install *gulp* packages required for building your armed solution (Note: we expect to automate this step at some point.)
+
+```bash
+npm install gulp-clean gulp-bump gulp-replace --save-dev
+```
+
+- Run the *armed* generator: 
+Armed will prompt you for any required inputs - you can accept the defaults by pressing return or enter your own values.
+
+```Powershell
+yo armed
+```
+
+```text
+? Your project name my-armed-project
+? Add tenant deployment true
+? Add subscription deployment true
+? Add group deployment true
+? Name of group deployment core
+   create .gitignore
+   create .vscode\snippets.code-snippets
+   create gulpfile.js
+   create deployments\tenant\tenant-deployment.json
+   create deployments\subscription\subscription-deployment.json
+   create deployments\core\_deployment.json
+   create deployments\core\_parameters.json
+   create deployments\core\resources.json
+   create deployments\core\variables.json
+   create deployments\core\functions.json
+   create deployments\core\outputs.json
+```
+
 ### Output
 
 This will create a folder structure like this:
@@ -113,6 +124,7 @@ This will create a folder structure like this:
 .
 ├───.vscode
 └───deployments
+    ├───_common
     ├───core
     ├───subscription
     └───tenant
@@ -265,7 +277,7 @@ Note:  in your target solution you will need to manually initialize the package 
 
 ```bash
 npm init
-npm install gulp gulp-clean gulp-bump gulp-replace
+npm install gulp-clean gulp-bump gulp-replace
 ```
 
 Any changes made in the generator-armed solution will be available immediately in your target solution.

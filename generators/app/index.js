@@ -65,7 +65,7 @@ module.exports = class extends Generator {
     }
 
     writing() {
-        this.fs.copy(this.templatePath('git/.gitignore'), this.destinationPath('.gitignore'));
+        this.fs.copy(this.templatePath('git/gitignore'), this.destinationPath('.gitignore'));
         this.fs.copy(this.templatePath('vscode'), this.destinationPath('./.vscode/'));
         this.fs.copy(this.templatePath('gulp/gulpfile.js'), this.destinationPath('gulpfile.js'));
     }
