@@ -1,0 +1,39 @@
+# yo armed
+
+`generator-armed` is [yeoman](https://yeoman.io/) generator that simplifies the development of ARM templates using a code first compositional approach. It will produce a solution consists of a number of ARM template fragments which are merged together without the need for pre-processing or transformation which maintains compatibility with the [Azure Resource Manager (ARM) Tools for Visual Studio Code (Preview)](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) from Microsoft.
+
+## Installation
+
+```
+npm install --global yo
+npm install --global generator-armed
+```
+
+## Run the generator
+
+```
+yo armed
+```
+
+```
+? Your project name my-armed-project
+? Add tenant deployment true
+? Add subscription deployment true
+? Add group deployment true
+? Name of group deployment core
+   create .gitignore
+   create .vscode\snippets.code-snippets
+   create gulpfile.js
+   create deployments\tenant\tenant-deployment.json
+   create deployments\subscription\subscription-deployment.json
+   create deployments\core\_deployment.json
+   create deployments\core\_parameters.json
+   create deployments\core\resources.json
+   create deployments\core\variables.json
+   create deployments\core\functions.json
+   create deployments\core\outputs.json
+```
+
+## Documentation
+
+See docs on [github](https://github.com/stvnrs/generator-armed) for more info.
