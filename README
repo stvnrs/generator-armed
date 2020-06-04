@@ -1,6 +1,6 @@
 # yo armed
 
-`generator-armed` is a [yeoman](https://yeoman.io/) generator that simplifies the development of ARM templates using a code-first compositional approach. It produces a solution consists of a number of ARM template fragments which are merged together without the need for pre-processing or transformation which maintains compatibility with the [Azure Resource Manager (ARM) Tools for Visual Studio Code (Preview)](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) from Microsoft.
+`generator-armed` is a [yeoman](https://yeoman.io/) generator that simplifies the development of ARM templates using a code-first compositional approach. It produces a solution consisting of a number of ARM template fragments which are merged together without the need for pre-processing or transformation. This maintains editing compatibility with the [Azure Resource Manager (ARM) Tools for Visual Studio Code (Preview)](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) Visual Studio Code extension from Microsoft.
 
 ## Installation
 
