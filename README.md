@@ -1,6 +1,6 @@
 # Armed
 
-Armed is [yeoman](https://yeoman.io/) generator that simplifies the development of ARM templates using a code first compositional approach. It will produce a solution consists of a number of ARM template fragments which are merged together without the need for pre-processing or transformation which maintains compatibility with the [Azure Resource Manager (ARM) Tools for Visual Studio Code (Preview)](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) from Microsoft.
+Armed is a [yeoman](https://yeoman.io/) generator that simplifies the development of ARM templates using a code-first compositional approach. It produces a solution consisting of a number of ARM template fragments which are merged together without the need for pre-processing or transformation. This maintains editing compatibility with the [Azure Resource Manager (ARM) Tools for Visual Studio Code (Preview)](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) Visual Studio Code extension from Microsoft.
 
 ## Quick Start
 
@@ -12,109 +12,113 @@ Armed is [yeoman](https://yeoman.io/) generator that simplifies the development 
 
 - Install *gulp* globally - global install is required for VS Code to detect gulp build tasks.
 
-```Powershell
-npm install --global gulp
-```
+  ```Powershell
+  npm install --global gulp
+  ```
 
 - Install *yeoman* - see yeoman's [docs](https://yeoman.io/learning/index.html) for a detailed walkthrough.
 
-```Powershell
-npm install --global yo
-```
+  ```Powershell
+  npm install --global yo
+  ```
 
 - Install *armed* from the npm repository, or to use a clone of this repository see the [Contributing](#Contributing) section below.
 
-```Powershell
-npm install --global generator-armed
-```
+  ```Powershell
+  npm install --global generator-armed
+  ```
 
 ### Creating an armed project
 
 - Open your favorite terminal and create a new folder for your project:
 
-```Powershell
-mkdir my-armed-project
-cd my-armed-project
-```
+  ```Powershell
+  mkdir my-armed-project
+  cd my-armed-project
+  ```
 
 - Run _npm init_ to initialize your project. See npm's [docs](https://docs.npmjs.com/) for a more detailed walkthrough of this process.
 (Note: we expect to automate this step at some point.)
 
-```bash
-npm init
-```
+  ```bash
+  npm init
+  ```
 
-```text
-This utility will walk you through creating a package.json file.
-It only covers the most common items, and tries to guess sensible defaults.
+  which will give output similar to:
 
-See `npm help json` for definitive documentation on these fields
-and exactly what they do.
+  ```text
+  This utility will walk you through creating a package.json file.
+  It only covers the most common items, and tries to guess sensible defaults.
 
-Use `npm install <pkg>` afterwards to install a package and
-save it as a dependency in the package.json file.
+  See `npm help json` for definitive documentation on these fields
+  and exactly what they do.
 
-Press ^C at any time to quit.
-package name: (my-armed-project)
-version: (1.0.0)
-description: Super cool armed project!
-entry point: (index.js)
-test command:
-git repository:
-keywords: arm
-author: Ricky Swift
-license: (ISC)
-About to write to C:\Users\StevenRose\source\repos\my-armed-project\package.json:
-{
-  "name": "my-armed-project",
-  "version": "1.0.0",
-  "description": "Super cool armed project!",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "arm"
-  ],
-  "author": "Ricky Swift",
-  "license": "ISC"
-}
+  Use `npm install <pkg>` afterwards to install a package and
+  save it as a dependency in the package.json file.
+
+  Press ^C at any time to quit.
+  package name: (my-armed-project)
+  version: (1.0.0)
+  description: Super cool armed project!
+  entry point: (index.js)
+  test command:
+  git repository:
+  keywords: arm
+  author: Ricky Swift
+  license: (ISC)
+  About to write to C:\Users\StevenRose\source\repos\my-armed-project\package.json:
+  {
+    "name": "my-armed-project",
+    "version": "1.0.0",
+    "description": "Super cool armed project!",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+      "arm"
+    ],
+    "author": "Ricky Swift",
+    "license": "ISC"
+  }
 
 
-Is this OK? (yes)
-```
+  Is this OK? (yes)
+  ```
 
 - Install *gulp* packages required for building your armed solution (Note: we expect to automate this step at some point.)
 
-```bash
-npm install gulp-clean gulp-bump gulp-replace --save-dev
-```
+  ```bash
+  npm install gulp-clean gulp-bump gulp-replace --save-dev
+  ```
 
-- Run the *armed* generator: 
+- Run the *armed* generator:
 Armed will prompt you for any required inputs - you can accept the defaults by pressing return or enter your own values.
 
-```Powershell
-yo armed
-```
+  ```Powershell
+  yo armed
+  ```
 
-```text
-? Your project name my-armed-project
-? Add tenant deployment true
-? Add subscription deployment true
-? Add group deployment true
-? Name of group deployment core
-   create .gitignore
-   create .vscode\snippets.code-snippets
-   create gulpfile.js
-   create deployments\tenant\tenant-deployment.json
-   create deployments\subscription\subscription-deployment.json
-   create deployments\core\_deployment.json
-   create deployments\core\_parameters.json
-   create deployments\core\resources.json
-   create deployments\core\variables.json
-   create deployments\core\functions.json
-   create deployments\core\outputs.json
-```
+  which will give output similar to:
+
+  ```text
+  ? Your project name my-armed-project
+  ? Add tenant deployment true
+  ? Add subscription deployment true
+  ? Add group deployment true
+  ? Name of group deployment core
+    create .gitignore
+    create .vscode\snippets.code-snippets
+    create gulpfile.js
+    create deployments\tenant\tenant-deployment.json
+    create deployments\subscription\subscription-deployment.json
+    create deployments\core\_deployment.json
+    create deployments\core\_parameters.json
+    create deployments\core\resources.json
+    create deployments\core\variables.json
+    create deployments\core\functions.json
+    create deployments\core\outputs.json
+  ```
 
 ### Output
 
@@ -206,7 +210,7 @@ Example:
 
 ## Generators
 
-armed
+### armed
 
 ```Powershell
 yo armed
