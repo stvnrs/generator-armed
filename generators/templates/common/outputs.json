@@ -1,8 +1,16 @@
 {
   "outputs": {
-    "Name": {
-      "type": "object",
-      "value": ""
+    "subscriptionDetails": {
+        "type" : "object",
+        "value": "[subscription()]"
+    },
+    "resourceGroupDetails": {
+        "type" : "object",
+        "value": "[resourceGroup()]"
+    },
+    "resourceName": {
+        "type" : "string",
+        "value": "[variables('resourceName')]"
     }
   }
 }

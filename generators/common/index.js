@@ -5,7 +5,6 @@ const destinationRoot = 'deployments';
 module.exports = class extends Generator {
 
     initializing(){
-        this.sourceRoot(`${this.sourceRoot()}/../../templates/common/`);
     }
 
     async prompting() {

@@ -1,3 +1,10 @@
 {
-    "variables": {  }
+    "variables": {
+        "resourceTypeAbbreviations": {
+            "DataFactory": "df",
+            "KeyVault": "kv",
+            "StorageAccount": "sa"
+        },
+        "resourceName": "[fn.restrictedResourceIdentifier(parameters('resourcePrefix'), fn.ringAbbreviation(parameters('deploymentRing')), fn.locationAbbreviation(resourceGroup().location), variables('resourceTypeAbbreviations').StorageAccount)]"
+    }
 }
