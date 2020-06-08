@@ -2,6 +2,14 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    "resourcePrefix": {
+      "type": "string",
+      "minLength": 4,
+      "maxLength": 4,
+      "metadata": {
+        "description": "A short string used to identify resources deployed by this template."
+      }
+    },
     "deploymentRing": {
       "type": "string",
       "allowedValues": [
@@ -11,7 +19,5 @@
         "production"
       ]
     }
-  },
-  "resources": [
-  ]
+  }
 }
