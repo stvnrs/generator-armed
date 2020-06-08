@@ -13,5 +13,11 @@
         "**/CVS": true,
         "**/.DS_Store": true,
         "node_modules/": true
+    },
+    "markdownlint.config": {
+        "MD013": false,
+        "MD024": {
+            "siblings_only": true
+        }
     }
 }
