@@ -1,12 +1,12 @@
 {
   "name": "generator-armed",
-  "version": "0.0.1-2",
+  "version": "0.0.1-4",
   "description": "Generator for ARM template projects",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "github:/stvnrs/generator-armed",
+  "repository": "github://nstvnrs/generator-armed",
   "keywords": [
     "yeoman-generator"
   ],
